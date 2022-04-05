@@ -5,6 +5,8 @@ const initialState = {
   singleProduct: [],
   featuredProducts: [],
   isLoading: true,
+  isError: false,
+  ErrorText: "",
   cartProduct: localStorage.getItem("cartItem")
     ? JSON.parse(localStorage.getItem("cartItem"))
     : [],
@@ -30,8 +32,8 @@ export const counterSlice = createSlice({
   initialState,
   reducers: {
     productsLoad: (state, action) => {
-      console.log("loading");
       state.isLoading = true;
+      state.isError = false;
     },
     getProducts: (state, action) => {
       let maxPrice = action.payload.map((p) => p.price);
@@ -40,11 +42,15 @@ export const counterSlice = createSlice({
       state.filters.price = maxPrice;
       state.products = action.payload;
       state.isLoading = false;
+      state.isError = false;
       state.filterProdcuts = state.products;
       state.featuredProducts = state.products.slice(0, 6);
     },
     productsError: (state, action) => {
       console.error(action.payload);
+      state.isError = true;
+      state.isLoading = false;
+      state.ErrorMessage = action.payload;
     },
 
     singleProduct: (state, action) => {

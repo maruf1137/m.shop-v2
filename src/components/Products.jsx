@@ -11,11 +11,12 @@ import {
   getwishlistTotalItem,
 } from "../counter/CounterSlice";
 import { ErrorMessage } from "./Messages";
-import spinner from "../images/Spinner-5.gif";
 
 const Products = ({ products }) => {
   const dispatch = useDispatch();
-  const { isLoading } = useSelector((state) => state.counter);
+  const { isLoading, isError, ErrorText } = useSelector(
+    (state) => state.counter
+  );
 
   const handleSingProduct = (id) => {
     const tampProduct = products.filter((product) => {
@@ -37,9 +38,11 @@ const Products = ({ products }) => {
   if (isLoading) {
     return (
       <div className="spinner-container center">
-        <img src={spinner} alt="" />
+        <h2>Loading...</h2>
       </div>
     );
+  } else if (isError) {
+    <ErrorMessage text="product not found, please try agein" />;
   } else {
     return (
       <div className="product">

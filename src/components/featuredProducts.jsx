@@ -1,18 +1,9 @@
 import React from "react";
 import Products from "./Products";
 import { useSelector } from "react-redux";
-// import spinner from "../images/Spinner-5.gif";
 
 const FeaturedProducts = () => {
-  const { featuredProducts, isLoading } = useSelector((state) => state.counter);
-
-  // const Loading = () => {
-  //     return (
-  //       <div className="spinner-container center">
-  //         <img src={spinner} alt="" />
-  //       </div>
-  //     );
-  //   };
+  const { featuredProducts } = useSelector((state) => state.counter);
 
   return (
     <div className="featuredProducts">

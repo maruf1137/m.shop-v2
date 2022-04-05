@@ -30,6 +30,7 @@ function App() {
       const data = await res.json();
       dispatch(getProducts(data));
     } catch (error) {
+      console.log(error);
       dispatch(productsError(error));
     }
   };
@@ -39,8 +40,6 @@ function App() {
     dispatch(getwishlistTotalItem());
     dispatch(getCartTotalItem());
   }, []);
-
-  // console.log(process.env.AUTH0_DOMAIN);
 
   return (
     <>
