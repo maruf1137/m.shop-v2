@@ -1,24 +1,73 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from "react";
+import "./sass/main.scss";
+import { Footer, Navbar, SingleProduct } from "./components/components";
+import {
+  HomePage,
+  Contacts,
+  ProductsPage,
+  ErrorPage,
+  CartPage,
+  WishlistPage,
+} from "./pages/pages";
+import { Switch, Route } from "react-router-dom";
+
+import { useDispatch } from "react-redux";
+import {
+  getProducts,
+  productsError,
+  productsLoad,
+  getwishlistTotalItem,
+  getCartTotalItem,
+} from "./counter/CounterSlice";
 
 function App() {
+  const dispatch = useDispatch();
+
+  const fetchData = async () => {
+    dispatch(productsLoad());
+    try {
+      const res = await fetch("https://fakestoreapi.com/products");
+      const data = await res.json();
+      dispatch(getProducts(data));
+    } catch (error) {
+      dispatch(productsError(error));
+    }
+  };
+
+  useEffect(() => {
+    fetchData();
+    dispatch(getwishlistTotalItem());
+    dispatch(getCartTotalItem());
+  }, []);
+
+  // console.log(process.env.AUTH0_DOMAIN);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Navbar />
+      <Switch>
+        <Route exact path="/">
+          <HomePage />
+        </Route>
+        <Route exact path="/products">
+          <ProductsPage />
+        </Route>
+        <Route exact path="/products/:id" children={<SingleProduct />}></Route>
+        <Route exact path="/contact">
+          <Contacts />
+        </Route>
+        <Route exact path="/cart">
+          <CartPage />
+        </Route>
+        <Route exact path="/wishlist">
+          <WishlistPage />
+        </Route>
+        <Route path="*">
+          <ErrorPage />
+        </Route>
+      </Switch>
+      <Footer />
+    </>
   );
 }
 

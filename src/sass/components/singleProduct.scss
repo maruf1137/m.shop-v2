@@ -1,0 +1,44 @@
+.singleProduct-container {
+  padding: 8rem 0;
+}
+
+.singleProduct {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 5rem 4rem;
+  align-items: center;
+
+  &__image {
+    height: 100%;
+    width: 100%;
+    padding: 5rem;
+
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .btns {
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+  }
+
+  &__btn {
+    padding: 1.2rem 2.2rem;
+    cursor: pointer;
+
+    &:hover {
+      color: #000;
+    }
+  }
+
+  //   &__cart{
+
+  //   }
+  //   &__wishlist{
+
+  //   }
+}

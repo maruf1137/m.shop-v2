@@ -1,0 +1,56 @@
+.wishlist-container {
+  position: relative;
+  margin-bottom: 15rem;
+}
+
+.wishlist {
+  &__item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 5rem;
+    padding: 0 2rem;
+    background-color: $color-primary;
+    margin: 0 5rem;
+    margin-top: 15rem;
+    border-radius: 5px;
+  }
+
+  &__image {
+    height: 10rem;
+    width: 10rem;
+    img {
+      @include img-size;
+      transform: scale(2) translateX(20px);
+    }
+  }
+
+  .heading,
+  .price {
+    color: #fff;
+  }
+
+  .item__remove,
+  .item__view {
+    padding: 1.2rem 2rem;
+    cursor: pointer;
+    background-color: #fff;
+    color: #000;
+
+    &:hover {
+      background-color: $color-primary;
+      border: 2px solid #fff;
+      color: #fff;
+    }
+  }
+
+  .item__view {
+    a {
+      color: #000;
+
+      &:hover {
+        color: #fff;
+      }
+    }
+  }
+}

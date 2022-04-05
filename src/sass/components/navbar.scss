@@ -1,0 +1,142 @@
+.nav {
+  background-color: $color-primary;
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 10rem;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  // background: red;
+  z-index: 2;
+
+  &__logo {
+    .logo {
+      color: #fff;
+      font-size: 3.5rem;
+    }
+  }
+
+  &__list {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+
+    @media only screen and (max-width: $tab-port) {
+      display: none;
+    }
+  }
+
+  &__link {
+    color: #fff;
+    font-size: 1.8rem;
+    text-transform: capitalize;
+  }
+
+  &__btns {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+
+    @media only screen and (max-width: $tab-port) {
+      display: none;
+    }
+  }
+  &__btn {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    position: relative;
+    cursor: pointer;
+
+    svg {
+      font-size: 2.4rem;
+      color: #fff;
+    }
+
+    span {
+      font-size: 1.2rem;
+      background-color: $color-secondary;
+      padding: 0.3rem;
+      border-radius: 50%;
+      color: #fff;
+      position: absolute;
+      top: -1rem;
+      right: -1.5rem;
+    }
+  }
+
+  .cart {
+  }
+  .wishlist {
+  }
+}
+
+.mbl-bar {
+  display: none;
+  cursor: pointer;
+  position: fixed;
+  top: 2rem;
+  right: 3rem;
+
+  @media only screen and (max-width: $tab-port) {
+    display: block;
+  }
+
+  svg {
+    font-size: 3rem;
+    color: #fff;
+  }
+}
+
+.side-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 60%;
+  background: $color-primary;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 6rem;
+  padding: 2rem 5rem;
+  box-shadow: rgb(0 0 0 / 27%) -2.05px 0.95px 27.6px;
+  display: none;
+  transform: translateX(-100%);
+  transition: all 0.5s;
+
+  @media only screen and (max-width: $tab-port) {
+    display: flex;
+  }
+  @media only screen and (max-width: $mbl-land) {
+    width: 100%;
+  }
+
+  .nav__list {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: start;
+  }
+
+  .nav__link {
+    font-size: 2.8rem;
+  }
+
+  .nav__btns {
+    display: flex;
+    gap: 0 5rem;
+  }
+
+  .nav__btn {
+    svg {
+      font-size: 3.4rem;
+    }
+  }
+}
+
+.show-sidebar {
+  transform: translateX(0);
+}

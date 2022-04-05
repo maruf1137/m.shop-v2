@@ -1,0 +1,51 @@
+.contactPage {
+  .contact-title {
+    padding: 8rem 10rem;
+    background-image: linear-gradient(
+        rgba(0, 0, 0, 0.507),
+        rgba(0, 0, 0, 0.432)
+      ),
+      url("../../images/bg-hero-2.jpg");
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    flex-direction: column;
+    align-items: center;
+    text-align: left;
+
+    @media only screen and (max-width: $mbl-port) {
+      padding: 8rem 2rem;
+    }
+
+    h2,
+    p {
+      color: #fff;
+    }
+  }
+}
+
+.contact {
+  padding: 8rem 0;
+
+  .first-col,
+  .second-col {
+    display: flex;
+    gap: 2rem;
+    @media only screen and (max-width: $mbl-port) {
+      flex-direction: column;
+    }
+  }
+
+  &__input,
+  .textarea {
+    width: 100%;
+    padding: 1.4rem;
+    border: 2px solid #eee;
+  }
+
+  .btn {
+    &:hover {
+      color: #000;
+    }
+  }
+}

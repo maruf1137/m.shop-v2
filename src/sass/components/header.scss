@@ -1,0 +1,77 @@
+.header {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.603), rgba(0, 0, 0, 0.575));
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+
+  &__content {
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+
+    @media only screen and (max-width: $tab-land) {
+      width: 100%;
+    }
+
+    h1 {
+      color: #fff;
+    }
+    .text {
+      color: #fff;
+    }
+  }
+
+  &__btns {
+    display: flex;
+    gap: 2rem;
+    margin-top: 5rem;
+    justify-content: center;
+
+    .btn-primary {
+    }
+  }
+
+  .slider-btns {
+    .prev {
+      left: 5rem;
+    }
+
+    .next {
+      right: 5rem;
+    }
+
+    @media only screen and (max-width: $tab-land) {
+      .prev {
+        left: 40%;
+      }
+
+      .next {
+        right: 40%;
+      }
+    }
+  }
+
+  .slider-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+
+    @media only screen and (max-width: $tab-land) {
+      top: 94%;
+    }
+
+    svg {
+      font-size: 5rem;
+      color: #fff;
+    }
+  }
+}

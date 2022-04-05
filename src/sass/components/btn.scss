@@ -1,0 +1,52 @@
+.btn {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background-color: $color-primary;
+  font-size: 1.8rem;
+  color: #fff;
+  border: 2px solid $color-primary;
+  border-radius: 10px;
+  transition: all 0.3s;
+  display: inline-block;
+  padding: 1.2rem 2.5rem;
+  cursor: pointer;
+
+  a:link,
+  a:visited {
+    color: #fff;
+    // padding: 1.2rem 2.5rem;
+    display: inline-block;
+    transition: all 0.4s;
+  }
+
+  &:hover {
+    background-color: transparent;
+
+    a:link,
+    a:visited {
+      color: $color-primary;
+    }
+  }
+}
+
+.btn-login,
+.btn-logout {
+  background-color: #fff;
+  font-size: 1.8rem;
+  color: $color-primary;
+  border: 1px solid #fff;
+  border-radius: 10px;
+  transition: all 0.3s;
+  display: inline-block;
+  padding: 1rem 2.5rem;
+
+  &:hover {
+    background-color: transparent;
+    color: #fff;
+  }
+}
